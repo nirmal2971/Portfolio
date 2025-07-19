@@ -4,13 +4,13 @@ export const portfolioData = {
   personal: {
     name: "Nirmal raj",
     title: "Software Developer",
-    bio: "I'm a passionate software developer with 3+ years of experience building web applications. I love creating elegant solutions to complex problems and turning ideas into reality through code.",
-    email: "nirmalraj@example.com",
-    phone: "+1 (555) 123-4567",
-    location: "San Francisco, CA",
-    profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+    bio: "I'm a passionate software developer with 1+ years of experience building web applications. I love creating elegant solutions to complex problems and turning ideas into reality through code.",
+    email: "nirmalrajm2971@gmail.com",
+    phone: "+91 6369502140",
+    location: "Neyveli",
+    profileImage: "/12.jpeg",
   },
-  
+
   skills: [
     { name: "JavaScript", level: "Expert", color: "mid-yellow" },
     { name: "React", level: "Expert", color: "mid-blue" },
@@ -18,85 +18,72 @@ export const portfolioData = {
     { name: "Python", level: "Advanced", color: "mid-purple" },
     { name: "TypeScript", level: "Intermediate", color: "dark-blue" },
     { name: "MongoDB", level: "Intermediate", color: "dark-green" },
-    { name: "AWS", level: "Intermediate", color: "mid-orange" },
-    { name: "Docker", level: "Intermediate", color: "light-blue" }
+    { name: "AWS", level: "Beginner", color: "mid-orange" },
+    { name: "Docker", level: "Beginner", color: "light-blue" },
   ],
 
   projects: [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with React, Node.js, and Stripe integration. Features include user authentication, product catalog, shopping cart, and payment processing.",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-      liveDemo: "https://ecommerce-demo.example.com",
-      github: "https://github.com/nirmalraj/ecommerce-platform",
-      bgColor: "light-pink",
-      textColor: "black"
+      title: "Feedback Internal System",
+      description:
+        "Internal feedback sharing platform enabling employees and managers to exchange structured feedback, track performance over time, and visualize sentiment trends through interactive dashboards.",
+      technologies: [
+        "React",
+        "FastAPI",
+        "Python",
+        "PostgreSQL",
+        "HTML/CSS",
+        "Docker",
+        "Javascript",
+      ],
+      liveDemo: "https://feedback-tool-backend.vercel.app/",
+      github: "https://github.com/nirmal2971/Feedback-tool-backend",
+      bgColor: "mid-purple",
+      textColor: "white",
     },
+
     {
       id: 2,
-      title: "Task Management App",
-      description: "Collaborative task management application with real-time updates, team collaboration features, and intuitive drag-and-drop interface.",
-      technologies: ["React", "Socket.io", "Express", "PostgreSQL"],
-      liveDemo: "https://taskmanager-demo.example.com",
-      github: "https://github.com/nirmalraj/task-manager",
-      bgColor: "mid-purple",
-      textColor: "white"
+      title: "Admin Panel",
+      description:
+        "Full-featured admin panel built with the MERN stack, offering secure authentication, user and data management, and interactive dashboard visualizations. Includes role-based access, modular UI components, and optimized CRUD operations.",
+      technologies: ["Express", "TypeScript", "Mongodb", "React", "Node.js"],
+      liveDemo: "https://github.com/nirmal2971/admin_panel",
+      github: "https://github.com/nirmal2971/admin_panel",
+      bgColor: "mid-blue",
+      textColor: "white",
     },
     {
       id: 3,
-      title: "Weather Dashboard",
-      description: "Interactive weather dashboard with location-based forecasts, historical data visualization, and responsive design for all devices.",
-      technologies: ["JavaScript", "Chart.js", "Weather API", "CSS3"],
-      liveDemo: "https://weather-dashboard.example.com",
-      github: "https://github.com/nirmalraj/weather-dashboard",
-      bgColor: "light-yellow",
-      textColor: "black"
-    },
-    {
-      id: 4,
-      title: "Blog CMS",
-      description: "Content management system for bloggers with markdown support, SEO optimization, and admin dashboard for content creation.",
-      technologies: ["Next.js", "Prisma", "PostgreSQL", "Tailwind"],
-      liveDemo: "https://blog-cms.example.com",
-      github: "https://github.com/nirmalraj/blog-cms",
-      bgColor: "mid-blue",
-      textColor: "white"
-    },
-    {
-      id: 5,
-      title: "AI Chat Assistant",
-      description: "Intelligent chat assistant powered by OpenAI API with conversation history, context awareness, and customizable responses.",
-      technologies: ["Python", "Flask", "OpenAI API", "React"],
-      liveDemo: "https://ai-chat.example.com",
-      github: "https://github.com/nirmalraj/ai-chat-assistant",
+      title: " PubMed Paper Fetcher",
+      description:
+        "Research analytics tool that integrates with PubMed to evaluate publication metrics, author influence, and citation patterns. Enables keyword-based search, impact factor insights, and intuitive data visualizations to assist academic researchers and analysts.",
+      technologies: ["Python"],
+      liveDemo: "https://github.com/nirmal2971/Paper_fetcher",
+      github: "https://github.com/nirmal2971/Paper_fetcher",
       bgColor: "mid-green",
-      textColor: "white"
-    }
+      textColor: "white",
+    },
   ],
 
   socialLinks: [
     {
       name: "GitHub",
-      url: "https://github.com/nirmalraj",
-      icon: "github"
+      url: "https://github.com/nirmal2971",
+      icon: "github",
     },
     {
       name: "LinkedIn",
-      url: "https://linkedin.com/in/nirmalraj",
-      icon: "linkedin"
-    },
-    {
-      name: "Twitter",
-      url: "https://twitter.com/nirmalraj",
-      icon: "twitter"
+      url: "https://www.linkedin.com/in/nirmal-raj-47b620249/",
+      icon: "linkedin",
     },
     {
       name: "Email",
-      url: "mailto:nirmalraj@example.com",
-      icon: "mail"
-    }
-  ]
+      url: "mailto:nirmalrajm2971@gmail.com",
+      icon: "mail",
+    },
+  ],
 };
 
 export const formSubmission = {
@@ -104,12 +91,12 @@ export const formSubmission = {
     // Mock form submission - returns success after 1 second
     return new Promise((resolve) => {
       setTimeout(() => {
-        console.log('Mock form submission:', formData);
+        console.log("Mock form submission:", formData);
         resolve({
           success: true,
-          message: 'Thank you for your message! I will get back to you soon.'
+          message: "Thank you for your message! I will get back to you soon.",
         });
       }, 1000);
     });
-  }
+  },
 };

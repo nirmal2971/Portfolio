@@ -1,18 +1,29 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Download, Github, Linkedin, Mail, MapPin } from 'lucide-react';
-import { Button } from './ui/button';
-import { portfolioData } from '../mock';
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  Download,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+} from "lucide-react";
+import { Button } from "./ui/button";
+import { portfolioData } from "../mock";
 
 const Home = () => {
   const { personal, socialLinks } = portfolioData;
 
   const getSocialIcon = (iconName) => {
-    switch(iconName) {
-      case 'github': return <Github className="h-5 w-5" />;
-      case 'linkedin': return <Linkedin className="h-5 w-5" />;
-      case 'mail': return <Mail className="h-5 w-5" />;
-      default: return <Mail className="h-5 w-5" />;
+    switch (iconName) {
+      case "github":
+        return <Github className="h-5 w-5" />;
+      case "linkedin":
+        return <Linkedin className="h-5 w-5" />;
+      case "mail":
+        return <Mail className="h-5 w-5" />;
+      default:
+        return <Mail className="h-5 w-5" />;
     }
   };
 
@@ -32,7 +43,7 @@ const Home = () => {
                   </span>
                 </div>
                 <h1 className="text-4xl lg:text-6xl font-bold leading-tight">
-                  Hi, I'm{' '}
+                  Hi, I'm{" "}
                   <span className="bg-gradient-to-r from-primary via-purple-500 to-pink-500 bg-clip-text text-transparent">
                     {personal.name}
                   </span>
@@ -53,10 +64,16 @@ const Home = () => {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
-                <Button variant="outline" size="lg" className="rounded-full px-8">
-                  <Download className="mr-2 h-4 w-4" />
-                  Download CV
-                </Button>
+                <a href="/Resume.pdf" download>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="rounded-full px-8"
+                  >
+                    <Download className="mr-2 h-4 w-4" />
+                    Download CV
+                  </Button>
+                </a>
               </div>
 
               {/* Social Links */}
@@ -84,10 +101,11 @@ const Home = () => {
                   <img
                     src={personal.profileImage}
                     alt={personal.name}
-                    className="w-full h-96 object-cover rounded-2xl"
+                    className="w-full h-96
+                     object-cover rounded-2xl"
                   />
                   <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground rounded-2xl p-4 shadow-lg">
-                    <div className="text-2xl font-bold">3+</div>
+                    <div className="text-2xl font-bold">1+</div>
                     <div className="text-sm opacity-90">Years Exp</div>
                   </div>
                 </div>
@@ -103,24 +121,34 @@ const Home = () => {
 
       {/* Quick Stats Section */}
       <section className="py-16 bg-accent/50">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="container mx-auto px-2">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="text-center space-y-2 animate-in slide-in-from-bottom-4 duration-700">
-              <div className="text-3xl lg:text-4xl font-bold text-primary">15+</div>
-              <div className="text-sm text-muted-foreground">Projects Completed</div>
+              <div className="text-3xl lg:text-4xl font-bold text-primary">
+                3+
+              </div>
+              <div className="text-sm text-muted-foreground">
+                Projects Completed
+              </div>
             </div>
             <div className="text-center space-y-2 animate-in slide-in-from-bottom-4 duration-700 delay-100">
-              <div className="text-3xl lg:text-4xl font-bold text-primary">3+</div>
-              <div className="text-sm text-muted-foreground">Years Experience</div>
+              <div className="text-3xl lg:text-4xl font-bold text-primary">
+                1+
+              </div>
+              <div className="text-sm text-muted-foreground">
+                Years Experience
+              </div>
             </div>
             <div className="text-center space-y-2 animate-in slide-in-from-bottom-4 duration-700 delay-200">
-              <div className="text-3xl lg:text-4xl font-bold text-primary">8+</div>
+              <div className="text-3xl lg:text-4xl font-bold text-primary">
+                8+
+              </div>
               <div className="text-sm text-muted-foreground">Technologies</div>
             </div>
-            <div className="text-center space-y-2 animate-in slide-in-from-bottom-4 duration-700 delay-300">
+            {/* <div className="text-center space-y-2 animate-in slide-in-from-bottom-4 duration-700 delay-300">
               <div className="text-3xl lg:text-4xl font-bold text-primary">100%</div>
               <div className="text-sm text-muted-foreground">Client Satisfaction</div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -133,7 +161,7 @@ const Home = () => {
               Ready to work together?
             </h2>
             <p className="text-lg text-muted-foreground">
-              I'm always interested in new opportunities and exciting projects. 
+              I'm always interested in new opportunities and exciting projects.
               Let's discuss how we can bring your ideas to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -143,7 +171,12 @@ const Home = () => {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button variant="outline" asChild size="lg" className="rounded-full px-8">
+              <Button
+                variant="outline"
+                asChild
+                size="lg"
+                className="rounded-full px-8"
+              >
                 <Link to="/about">Learn More About Me</Link>
               </Button>
             </div>

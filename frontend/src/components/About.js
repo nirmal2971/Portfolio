@@ -79,12 +79,12 @@ const About = () => {
             <div className="grid grid-cols-2 gap-4">
               <Card className="p-6 text-center hover:shadow-lg transition-shadow duration-300">
                 <Code className="h-8 w-8 text-primary mx-auto mb-3" />
-                <div className="text-2xl font-bold text-primary">15+</div>
+                <div className="text-2xl font-bold text-primary">3+</div>
                 <div className="text-sm text-muted-foreground">Projects</div>
               </Card>
               <Card className="p-6 text-center hover:shadow-lg transition-shadow duration-300">
                 <Award className="h-8 w-8 text-primary mx-auto mb-3" />
-                <div className="text-2xl font-bold text-primary">3+</div>
+                <div className="text-2xl font-bold text-primary">1+</div>
                 <div className="text-sm text-muted-foreground">Years</div>
               </Card>
             </div>

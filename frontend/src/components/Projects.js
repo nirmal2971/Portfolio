@@ -1,44 +1,53 @@
-import React, { useState } from 'react';
-import { ExternalLink, Github, Search } from 'lucide-react';
-import { Button } from './ui/button';
-import { Card } from './ui/card';
-import { Badge } from './ui/badge';
-import { Input } from './ui/input';
-import { portfolioData } from '../mock';
+import React, { useState } from "react";
+import { ExternalLink, Github, Search } from "lucide-react";
+import { Button } from "./ui/button";
+import { Card } from "./ui/card";
+import { Badge } from "./ui/badge";
+import { Input } from "./ui/input";
+import { portfolioData } from "../mock";
 
 const Projects = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedTech, setSelectedTech] = useState('');
-  
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedTech, setSelectedTech] = useState("");
+
   // Get all unique technologies for filtering
-  const allTechnologies = [...new Set(
-    portfolioData.projects.flatMap(project => project.technologies)
-  )].sort();
+  const allTechnologies = [
+    ...new Set(
+      portfolioData.projects.flatMap((project) => project.technologies)
+    ),
+  ].sort();
 
   // Filter projects based on search and technology
-  const filteredProjects = portfolioData.projects.filter(project => {
-    const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         project.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesTech = selectedTech === '' || project.technologies.includes(selectedTech);
+  const filteredProjects = portfolioData.projects.filter((project) => {
+    const matchesSearch =
+      project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesTech =
+      selectedTech === "" || project.technologies.includes(selectedTech);
     return matchesSearch && matchesTech;
   });
 
   const getProjectCardClass = (bgColor, textColor) => {
     const colorMap = {
-      'light-pink': 'bg-pink-100 text-black border-pink-200 dark:bg-pink-900/30 dark:text-pink-100 dark:border-pink-800',
-      'mid-purple': 'bg-purple-500 text-white border-purple-600 dark:bg-purple-600 dark:border-purple-700',
-      'light-yellow': 'bg-yellow-100 text-black border-yellow-200 dark:bg-yellow-900/30 dark:text-yellow-100 dark:border-yellow-800',
-      'mid-blue': 'bg-blue-500 text-white border-blue-600 dark:bg-blue-600 dark:border-blue-700',
-      'mid-green': 'bg-green-500 text-white border-green-600 dark:bg-green-600 dark:border-green-700',
+      "light-pink":
+        "bg-pink-100 text-black border-pink-200 dark:bg-pink-900/30 dark:text-pink-100 dark:border-pink-800",
+      "mid-purple":
+        "bg-purple-500 text-white border-purple-600 dark:bg-purple-600 dark:border-purple-700",
+      "light-yellow":
+        "bg-yellow-100 text-black border-yellow-200 dark:bg-yellow-900/30 dark:text-yellow-100 dark:border-yellow-800",
+      "mid-blue":
+        "bg-blue-500 text-white border-blue-600 dark:bg-blue-600 dark:border-blue-700",
+      "mid-green":
+        "bg-green-500 text-white border-green-600 dark:bg-green-600 dark:border-green-700",
     };
-    return colorMap[bgColor] || 'bg-card text-card-foreground border-border';
+    return colorMap[bgColor] || "bg-card text-card-foreground border-border";
   };
 
   const getTechBadgeClass = (tech, bgColor) => {
-    if (bgColor === 'light-pink' || bgColor === 'light-yellow') {
-      return 'bg-black/10 text-black hover:bg-black/20';
+    if (bgColor === "light-pink" || bgColor === "light-yellow") {
+      return "bg-black/10 text-black hover:bg-black/20";
     }
-    return 'bg-white/20 text-white hover:bg-white/30';
+    return "bg-white/20 text-white hover:bg-white/30";
   };
 
   return (
@@ -47,13 +56,14 @@ const Projects = () => {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 animate-in slide-in-from-top-4 duration-700">
           <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-            My{' '}
+            My{" "}
             <span className="bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
               Projects
             </span>
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            A collection of projects I've worked on, showcasing my skills and passion for development
+            A collection of projects I've worked on, showcasing my skills and
+            passion for development
           </p>
         </div>
 
@@ -76,9 +86,9 @@ const Projects = () => {
               {/* Technology Filter */}
               <div className="flex flex-wrap gap-2">
                 <Button
-                  variant={selectedTech === '' ? 'default' : 'outline'}
+                  variant={selectedTech === "" ? "default" : "outline"}
                   size="sm"
-                  onClick={() => setSelectedTech('')}
+                  onClick={() => setSelectedTech("")}
                   className="rounded-full"
                 >
                   All
@@ -86,7 +96,7 @@ const Projects = () => {
                 {allTechnologies.map((tech) => (
                   <Button
                     key={tech}
-                    variant={selectedTech === tech ? 'default' : 'outline'}
+                    variant={selectedTech === tech ? "default" : "outline"}
                     size="sm"
                     onClick={() => setSelectedTech(tech)}
                     className="rounded-full"
@@ -104,7 +114,10 @@ const Projects = () => {
           {filteredProjects.map((project, index) => (
             <Card
               key={project.id}
-              className={`group overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 ${getProjectCardClass(project.bgColor, project.textColor)} animate-in slide-in-from-bottom-4`}
+              className={`group overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 ${getProjectCardClass(
+                project.bgColor,
+                project.textColor
+              )} animate-in slide-in-from-bottom-4`}
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="p-6 h-full flex flex-col">
@@ -113,9 +126,13 @@ const Projects = () => {
                   <h3 className="text-xl font-bold mb-2 group-hover:underline transition-all">
                     {project.title}
                   </h3>
-                  <p className={`text-sm leading-relaxed ${
-                    project.textColor === 'white' ? 'opacity-90' : 'opacity-70'
-                  }`}>
+                  <p
+                    className={`text-sm leading-relaxed ${
+                      project.textColor === "white"
+                        ? "opacity-90"
+                        : "opacity-70"
+                    }`}
+                  >
                     {project.description}
                   </p>
                 </div>
@@ -126,7 +143,10 @@ const Projects = () => {
                     <Badge
                       key={tech}
                       variant="secondary"
-                      className={`text-xs ${getTechBadgeClass(tech, project.bgColor)} border-0`}
+                      className={`text-xs ${getTechBadgeClass(
+                        tech,
+                        project.bgColor
+                      )} border-0`}
                     >
                       {tech}
                     </Badge>
@@ -139,9 +159,9 @@ const Projects = () => {
                     asChild
                     size="sm"
                     className={`flex-1 rounded-full ${
-                      project.textColor === 'white' 
-                        ? 'bg-white text-black hover:bg-gray-100' 
-                        : 'bg-black text-white hover:bg-gray-800'
+                      project.textColor === "white"
+                        ? "bg-white text-black hover:bg-gray-100"
+                        : "bg-black text-white hover:bg-gray-800"
                     }`}
                   >
                     <a
@@ -159,9 +179,9 @@ const Projects = () => {
                     variant="outline"
                     size="sm"
                     className={`rounded-full ${
-                      project.textColor === 'white'
-                        ? 'border-white/30 text-white hover:bg-white/10'
-                        : 'border-black/30 text-black hover:bg-black/10'
+                      project.textColor === "white"
+                        ? "border-white/30 text-white hover:bg-white/10"
+                        : "border-black/30 text-black hover:bg-black/10"
                     }`}
                   >
                     <a
@@ -190,8 +210,8 @@ const Projects = () => {
               </p>
               <Button
                 onClick={() => {
-                  setSearchTerm('');
-                  setSelectedTech('');
+                  setSearchTerm("");
+                  setSelectedTech("");
                 }}
                 variant="outline"
                 className="rounded-full"
@@ -207,16 +227,26 @@ const Projects = () => {
           <Card className="p-8 bg-gradient-to-r from-primary/5 to-purple-500/5 border-primary/20">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-primary">{portfolioData.projects.length}</div>
-                <div className="text-sm text-muted-foreground">Total Projects</div>
+                <div className="text-3xl font-bold text-primary">
+                  {portfolioData.projects.length}
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  Total Projects
+                </div>
               </div>
               <div className="space-y-2">
-                <div className="text-3xl font-bold text-primary">{allTechnologies.length}</div>
-                <div className="text-sm text-muted-foreground">Technologies</div>
+                <div className="text-3xl font-bold text-primary">
+                  {allTechnologies.length}
+                </div>
+                <div className="text-sm text-muted-foreground">
+                  Technologies
+                </div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl font-bold text-primary">100%</div>
-                <div className="text-sm text-muted-foreground">Completion Rate</div>
+                <div className="text-sm text-muted-foreground">
+                  Completion Rate
+                </div>
               </div>
               <div className="space-y-2">
                 <div className="text-3xl font-bold text-primary">24/7</div>
@@ -233,16 +263,19 @@ const Projects = () => {
               Interested in Working Together?
             </h2>
             <p className="text-muted-foreground">
-              I'm always open to discussing new opportunities and exciting projects. 
-              Let's create something amazing together!
+              I'm always open to discussing new opportunities and exciting
+              projects. Let's create something amazing together!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="rounded-full">
-                <a href="mailto:nirmalraj@example.com">
-                  Start a Project
-                </a>
+                <a href="mailto:nirmalraj@example.com">Start a Project</a>
               </Button>
-              <Button variant="outline" asChild size="lg" className="rounded-full">
+              <Button
+                variant="outline"
+                asChild
+                size="lg"
+                className="rounded-full"
+              >
                 <a href="/contact">Get In Touch</a>
               </Button>
             </div>
