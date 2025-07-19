@@ -73,6 +73,7 @@
       "last 1 safari version"
     ]
   },
+  
   "devDependencies": {
     "@craco/craco": "^7.1.0",
     "@eslint/js": "9.23.0",
